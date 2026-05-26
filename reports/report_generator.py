@@ -1,3 +1,5 @@
+import json
+
 def generate_report(
     vendor,
     observed_logs,
@@ -34,3 +36,17 @@ def generate_report(
     }
 
     return report
+
+
+def save_report(
+    report,
+    path
+):
+
+    with open(path, "w") as f:
+
+        json.dump(
+            report,
+            f,
+            indent=4
+        )
