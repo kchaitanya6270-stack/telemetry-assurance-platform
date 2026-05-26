@@ -6,9 +6,16 @@ from validators.event_validator import (
     get_event_types
 )
 
+from reports.report_generator import (
+    generate_report,
+    save_report
+)
+
+
 from validators.completeness_validator import (
     compare_logs
 )
+
 
 from validators.udm_validator import (
     validate_udm
@@ -60,5 +67,12 @@ for index, event in enumerate(events):
     print(f"\nEvent {index + 1}")
 
     print("Missing Fields:")
+    
 
     print(missing_fields)
+save_report(
+    report,
+    "reports/output_report.json"
+)
+
+print("\nREPORT SAVED")
